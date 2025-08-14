@@ -4,13 +4,6 @@
  * - Checks every 30 minutes for new TikTok videos on one or more accounts
  * - Sends new posts as Discord embeds via a webhook
  * - Persists already-forwarded video IDs in a small JSON file
- * - Uses DOM parsing (cheerio) to read the visible video cards you shared
- *
- * How to run:
- *   1) npm init -y && npm i -D typescript ts-node @types/node && npm i cheerio
- *   2) Create tsconfig.json with { "compilerOptions": { "module": "es2022", "target": "es2022", "moduleResolution": "node", "esModuleInterop": true, "skipLibCheck": true, "outDir": "dist" } }
- *   3) Save this file as src/app.ts
- *   4) Set env vars (see below) and run: npx ts-node src/app.ts
  *
  * Env vars:
  *   DISCORD_WEBHOOK_URL   (required) — Discord webhook
