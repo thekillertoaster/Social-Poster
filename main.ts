@@ -35,7 +35,7 @@ if (USERNAMES.length === 0) {
     process.exit(1)
 }
 
-const POLL_MINUTES = Number(process.env.POLL_MINUTES || 30)
+const POLL_MINUTES = Number(process.env.POLL_MINUTES || 60)
 const STATE_FILE = process.env.STATE_FILE || path.resolve('.state.json')
 
 // ---- Minimal persisted state ----
@@ -51,6 +51,7 @@ async function loadState() {
         if (existsSync(STATE_FILE)) {
             const raw = await readFile(STATE_FILE, 'utf8')
             state = JSON.parse(raw)
+            console.log(`Loaded state for ${Object.keys(state).length} TikTok user(s).`)
         }
     } catch (err) {
         console.warn('WARN: Could not read state file, starting fresh.', err)
